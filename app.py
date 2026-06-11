@@ -1,106 +1,170 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from google.auth.transport.requests import Request
-from google.oauth2.service_account import Credentials
-from google.auth import default
-import google.auth
 from email.mime.text import MIMEText
-import base64
-import os
 from dotenv import load_dotenv
-import httplib2
-from googleapiclient.discovery import build
+
+import smtplib
+import os
+import traceback
 
 load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 
-# Configuration
-SENDER_EMAIL = os.getenv("SENDER_EMAIL", "your_email@gmail.com")
-RECIPIENT_EMAIL = os.getenv("RECIPIENT_EMAIL", "lokesh@lokeshkaria.dev")
-GOOGLE_APPLICATION_CREDENTIALS = os.getenv("GOOGLE_APPLICATION_CREDENTIALS", "credentials.json")
+SENDER_EMAIL = os.getenv("SENDER_EMAIL")
+APP_PASSWORD = os.getenv("APP_PASSWORD")
+RECIPIENT_EMAIL = os.getenv("RECIPIENT_EMAIL")
 
-def get_gmail_service():
-    """Authenticate with Google and return Gmail service."""
-    try:
-        credentials = Credentials.from_service_account_file(
-            GOOGLE_APPLICATION_CREDENTIALS,
-            scopes=['https://www.googleapis.com/auth/gmail.send']
-        )
-        service = build('gmail', 'v1', credentials=credentials)
-        return service
-    except Exception as e:
-        print(f"Authentication error: {str(e)}")
-        raise
+# Validate environment variables on startup
+missing = []
 
-def send_gmail(service, sender, to, subject, message_text):
-    """Send email using Gmail API."""
-    message = MIMEText(message_text)
-    message['to'] = to
-    message['from'] = sender
-    message['subject'] = subject
-    raw_message = base64.urlsafe_b64encode(message.as_bytes()).decode()
-    
-    try:
-        message_obj = {'raw': raw_message}
-        service.users().messages().send(userId='me', body=message_obj).execute()
-        return True
-    except Exception as e:
-        print(f"Error sending email: {str(e)}")
-        raise
-GOOGLE_APPLICATION_CREDENTIALS = os.getenv("GOOGLE_APPLICATION_CREDENTIALS", "credentials.json")
+if not SENDER_EMAIL:
+    missing.append("SENDER_EMAIL")
 
-@app.route('/send-email', methods=['POST'])
+if not APP_PASSWORD:
+    missing.append("APP_PASSWORD")
+
+if not RECIPIENT_EMAIL:
+    missing.append("RECIPIENT_EMAIL")
+
+if missing:
+    raise ValueError(
+        f"Missing environment variables: {', '.join(missing)}"
+    )
+
+
+@app.route("/send-email", methods=["POST"])
 def send_email():
     try:
-        data = request.json
-        
-        # Validate input
-        required_fields = ['fname', 'lname', 'email', 'subject', 'msg']
-        if not all(field in data for field in required_fields):
-            return jsonify({'success': False, 'error': 'Missing required fields'}), 400
-        
-        fname = data['fname'].strip()
-        lname = data['lname'].strip()
-        email = data['email'].strip()
-        subject = data['subject'].strip()
-        msg_body = data['msg'].strip()
-        
-        if not all([fname, lname, email, subject, msg_body]):
-            return jsonify({'success': False, 'error': 'All fields are required'}), 400
-        
-        # Build email message
-        message_body = f"""
-New contact form submission:
+        data = request.get_json()
+
+        if not data:
+            return jsonify({
+                "success": False,
+                "error": "Invalid JSON payload"
+            }), 400
+
+        required_fields = [
+            "fname",
+            "lname",
+            "email",
+            "subject",
+            "msg"
+        ]
+
+        for field in required_fields:
+            if field not in data:
+                return jsonify({
+                    "success": False,
+                    "error": f"Missing field: {field}"
+                }), 400
+
+        fname = data["fname"].strip()
+        lname = data["lname"].strip()
+        email = data["email"].strip()
+        subject = data["subject"].strip()
+        message = data["msg"].strip()
+
+        if not all([
+            fname,
+            lname,
+            email,
+            subject,
+            message
+        ]):
+            return jsonify({
+                "success": False,
+                "error": "All fields are required"
+            }), 400
+
+        # Basic email validation
+        if "@" not in email:
+            return jsonify({
+                "success": False,
+                "error": "Invalid email address"
+            }), 400
+
+        body = f"""
+New portfolio contact form submission
 
 Name: {fname} {lname}
 Email: {email}
-Subject: {subject}
+
+Subject:
+{subject}
 
 Message:
-{msg_body}
-        """
-        
-        # Get Gmail service and send email
-        service = get_gmail_service()
-        send_gmail(
-            service,
-            SENDER_EMAIL,
-            RECIPIENT_EMAIL,
-            f"Portfolio Contact: {subject}",
-            message_body
-        )
-        
-        return jsonify({'success': True, 'message': 'Email sent successfully!'})
-    
-    except Exception as e:
-        print(f"Error: {str(e)}")
-        return jsonify({'success': False, 'error': 'Failed to send email. Please try again.'}), 500
+{message}
+"""
 
-@app.route('/health', methods=['GET'])
+        msg = MIMEText(body)
+
+        msg["Subject"] = f"Portfolio Contact: {subject}"
+        msg["From"] = SENDER_EMAIL
+        msg["To"] = RECIPIENT_EMAIL
+
+        # Clicking reply in Gmail replies to the visitor
+        msg["Reply-To"] = email
+
+        print("Connecting to Gmail SMTP...")
+
+        with smtplib.SMTP_SSL(
+            "smtp.gmail.com",
+            465,
+            timeout=30
+        ) as smtp:
+
+            print("Connected.")
+
+            smtp.login(
+                SENDER_EMAIL,
+                APP_PASSWORD
+            )
+
+            print("Authenticated.")
+
+            smtp.send_message(msg)
+
+            print("Email sent.")
+
+        return jsonify({
+            "success": True,
+            "message": "Email sent successfully"
+        })
+
+    except smtplib.SMTPAuthenticationError:
+        traceback.print_exc()
+
+        return jsonify({
+            "success": False,
+            "error": "SMTP authentication failed. Check Gmail App Password."
+        }), 500
+
+    except Exception:
+        traceback.print_exc()
+
+        return jsonify({
+            "success": False,
+            "error": "Failed to send email"
+        }), 500
+
+
+@app.route("/health", methods=["GET"])
 def health():
-    return jsonify({'status': 'ok'})
+    return jsonify({
+        "status": "ok",
+        "email_configured": bool(
+            SENDER_EMAIL and
+            APP_PASSWORD and
+            RECIPIENT_EMAIL
+        )
+    })
 
-if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+
+if __name__ == "__main__":
+    app.run(
+        host="0.0.0.0",
+        port=5000,
+        debug=True
+    )
