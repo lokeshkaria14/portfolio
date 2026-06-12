@@ -227,11 +227,7 @@
     margin-bottom: 1.2rem;
   }
 
-  .code-window .dot {
-    width: 10px; height: 10px;
-    border-radius: 50%;
-  }
-
+  .code-window .dot { width: 10px; height: 10px; border-radius: 50%; }
   .dot-r { background: #ff5f57; }
   .dot-y { background: #febc2e; }
   .dot-g { background: #28c840; }
@@ -303,7 +299,6 @@
 
   /* ── SECTION BASE ── */
   section { padding: 7rem 0; }
-
   .container { max-width: 1200px; margin: 0 auto; padding: 0 4rem; }
 
   .section-label {
@@ -318,10 +313,7 @@
     gap: 0.75rem;
   }
 
-  .section-label::before {
-    content: attr(data-num);
-    color: var(--muted);
-  }
+  .section-label::before { content: attr(data-num); color: var(--muted); }
 
   .section-title {
     font-family: var(--font-display);
@@ -392,12 +384,7 @@
     max-width: 420px;
   }
 
-  .project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
-  }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
 
   .tag {
     font-family: var(--font-mono);
@@ -416,12 +403,10 @@
     font-size: 1.2rem;
     color: var(--muted);
     transition: transform 0.2s, color 0.2s;
+    text-decoration: none;
   }
 
-  .project-card:hover .project-arrow {
-    transform: translate(3px, -3px);
-    color: var(--accent);
-  }
+  .project-card:hover .project-arrow { transform: translate(3px, -3px); color: var(--accent); }
 
   .project-highlight {
     display: inline-block;
@@ -454,11 +439,7 @@
     margin-top: 1rem;
   }
 
-  .skills-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
+  .skills-grid { display: flex; flex-direction: column; gap: 2rem; }
 
   .skill-group-label {
     font-family: var(--font-mono);
@@ -478,11 +459,7 @@
     gap: 1rem;
   }
 
-  .skill-name {
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    color: var(--text);
-  }
+  .skill-name { font-family: var(--font-mono); font-size: 0.82rem; color: var(--text); }
 
   .skill-bar-bg {
     height: 3px;
@@ -502,89 +479,40 @@
 
   .skill-bar-fill.orange { background: var(--accent2); }
 
-  .skill-pct {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--muted);
-    text-align: right;
-  }
+  .skill-pct { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); text-align: right; }
 
   /* ── EXPERIENCE ── */
   #experience { background: var(--bg); }
 
-  .timeline {
-    position: relative;
-    padding-left: 2rem;
-    margin-top: 4rem;
-  }
+  .timeline { position: relative; padding-left: 2rem; margin-top: 4rem; }
 
   .timeline::before {
     content: '';
     position: absolute;
-    left: 0;
-    top: 8px;
-    bottom: 8px;
+    left: 0; top: 8px; bottom: 8px;
     width: 1px;
     background: var(--border);
   }
 
-  .timeline-item {
-    position: relative;
-    padding: 0 0 3.5rem 3rem;
-  }
+  .timeline-item { position: relative; padding: 0 0 3.5rem 3rem; }
 
   .timeline-item::before {
     content: '';
     position: absolute;
-    left: -4px;
-    top: 8px;
-    width: 9px;
-    height: 9px;
+    left: -4px; top: 8px;
+    width: 9px; height: 9px;
     border: 1.5px solid var(--accent);
     background: var(--bg);
     border-radius: 50%;
   }
 
-  .timeline-item.current::before {
-    background: var(--accent);
-  }
+  .timeline-item.current::before { background: var(--accent); }
 
-  .tl-date {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    color: var(--accent);
-    margin-bottom: 0.5rem;
-  }
-
-  .tl-company {
-    font-family: var(--font-display);
-    font-size: 1.8rem;
-    letter-spacing: 0.02em;
-    line-height: 1;
-    color: var(--text);
-  }
-
-  .tl-role {
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    color: var(--muted);
-    margin: 0.4rem 0 1rem;
-  }
-
-  .tl-desc {
-    font-size: 0.9rem;
-    color: var(--muted);
-    line-height: 1.8;
-    max-width: 600px;
-  }
-
-  .tl-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-  }
+  .tl-date { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.5rem; }
+  .tl-company { font-family: var(--font-display); font-size: 1.8rem; letter-spacing: 0.02em; line-height: 1; color: var(--text); }
+  .tl-role { font-family: var(--font-mono); font-size: 0.82rem; color: var(--muted); margin: 0.4rem 0 1rem; }
+  .tl-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.8; max-width: 600px; }
+  .tl-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
 
   /* ── BLOG ── */
   #blog { background: var(--bg2); }
@@ -598,225 +526,98 @@
     margin-top: 4rem;
   }
 
-  .blog-card {
-    background: var(--bg2);
-    padding: 2rem;
-    cursor: pointer;
-    transition: background 0.2s;
-  }
-
+  .blog-card { background: var(--bg2); padding: 2rem; cursor: pointer; transition: background 0.2s; }
   .blog-card:hover { background: var(--bg3); }
 
-  .blog-meta {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .blog-date {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    color: var(--muted);
-  }
-
+  .blog-meta { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+  .blog-date { font-family: var(--font-mono); font-size: 0.68rem; color: var(--muted); }
   .blog-cat {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent);
-    border: 1px solid rgba(232,255,71,0.3);
-    padding: 0.15rem 0.6rem;
-    border-radius: var(--radius);
+    font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent);
+    border: 1px solid rgba(232,255,71,0.3); padding: 0.15rem 0.6rem; border-radius: var(--radius);
   }
 
-  .blog-title {
-    font-size: 1.05rem;
-    font-weight: 500;
-    line-height: 1.4;
-    margin-bottom: 0.75rem;
-    color: var(--text);
-    transition: color 0.2s;
-  }
-
+  .blog-title { font-size: 1.05rem; font-weight: 500; line-height: 1.4; margin-bottom: 0.75rem; color: var(--text); transition: color 0.2s; }
   .blog-card:hover .blog-title { color: var(--accent); }
-
-  .blog-excerpt {
-    font-size: 0.85rem;
-    color: var(--muted);
-    line-height: 1.7;
-  }
+  .blog-excerpt { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
 
   .blog-read {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    margin-top: 1.5rem;
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.06em;
-    color: var(--accent);
-    text-decoration: none;
+    display: flex; align-items: center; gap: 0.4rem; margin-top: 1.5rem;
+    font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.06em;
+    color: var(--accent); text-decoration: none;
   }
-
   .blog-read .arrow { transition: transform 0.2s; }
   .blog-card:hover .blog-read .arrow { transform: translateX(4px); }
 
   /* ── CONTACT ── */
-  #contact {
-    background: var(--bg);
-    padding: 7rem 0;
-  }
+  #contact { background: var(--bg); padding: 7rem 0; }
 
-  .contact-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: start;
-  }
+  .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
 
   .contact-left .big-text {
     font-family: var(--font-display);
     font-size: clamp(3rem, 6vw, 5.5rem);
-    letter-spacing: 0.02em;
-    line-height: 1;
-    margin: 1rem 0 1.5rem;
+    letter-spacing: 0.02em; line-height: 1; margin: 1rem 0 1.5rem;
   }
-
   .contact-left .big-text .accent { color: var(--accent); }
+  .contact-left p { font-size: 0.95rem; color: var(--muted); line-height: 1.8; max-width: 400px; }
 
-  .contact-left p {
-    font-size: 0.95rem;
-    color: var(--muted);
-    line-height: 1.8;
-    max-width: 400px;
-  }
-
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 2rem;
-  }
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; margin-top: 2rem; }
 
   .contact-link {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    color: var(--muted);
-    text-decoration: none;
-    transition: color 0.2s;
+    display: flex; align-items: center; gap: 1rem;
+    font-family: var(--font-mono); font-size: 0.82rem;
+    color: var(--muted); text-decoration: none; transition: color 0.2s;
   }
-
   .contact-link:hover { color: var(--text); }
 
   .contact-link .icon {
-    width: 36px;
-    height: 36px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    transition: border-color 0.2s, background 0.2s;
+    width: 36px; height: 36px;
+    border: 1px solid var(--border); border-radius: var(--radius);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem; transition: border-color 0.2s, background 0.2s;
   }
-
-  .contact-link:hover .icon {
-    border-color: rgba(232,255,71,0.4);
-    background: rgba(232,255,71,0.05);
-  }
+  .contact-link:hover .icon { border-color: rgba(232,255,71,0.4); background: rgba(232,255,71,0.05); }
 
   .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
 
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
 
   .form-group label {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
+    font-family: var(--font-mono); font-size: 0.7rem;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
   }
 
   .form-group input,
   .form-group textarea {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 0.85rem 1rem;
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    color: var(--text);
-    outline: none;
-    transition: border-color 0.2s;
-    resize: vertical;
+    background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 0.85rem 1rem; font-family: var(--font-body); font-size: 0.9rem;
+    color: var(--text); outline: none; transition: border-color 0.2s; resize: vertical;
   }
 
   .form-group input:focus,
-  .form-group textarea:focus {
-    border-color: rgba(232,255,71,0.4);
-  }
-
+  .form-group textarea:focus { border-color: rgba(232,255,71,0.4); }
   .form-group textarea { min-height: 120px; }
-
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
 
   .btn-submit {
-    background: var(--accent);
-    color: #0a0a0a;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 0.9rem 2rem;
-    border: none;
-    border-radius: var(--radius);
-    cursor: pointer;
-    transition: opacity 0.2s;
-    align-self: flex-start;
+    background: var(--accent); color: #0a0a0a;
+    font-family: var(--font-mono); font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.9rem 2rem; border: none; border-radius: var(--radius);
+    cursor: pointer; transition: opacity 0.2s; align-self: flex-start;
   }
-
   .btn-submit:hover { opacity: 0.85; }
+  .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
 
   /* ── FOOTER ── */
   footer {
-    border-top: 1px solid var(--border);
-    padding: 2rem 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 100%;
+    border-top: 1px solid var(--border); padding: 2rem 4rem;
+    display: flex; align-items: center; justify-content: space-between; max-width: 100%;
   }
-
-  .footer-copy {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    color: var(--muted);
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-
-  .footer-links a {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    color: var(--muted);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
+  .footer-copy { font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted); }
+  .footer-links { display: flex; gap: 2rem; list-style: none; }
+  .footer-links a { font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
   .footer-links a:hover { color: var(--text); }
 
   /* ── ANIMATIONS ── */
@@ -824,25 +625,16 @@
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-
   .fade-up { animation: fadeUp 0.7s ease forwards; }
   .delay-1 { animation-delay: 0.1s; opacity: 0; }
   .delay-2 { animation-delay: 0.25s; opacity: 0; }
   .delay-3 { animation-delay: 0.4s; opacity: 0; }
   .delay-4 { animation-delay: 0.55s; opacity: 0; }
 
-  /* Scanline decoration */
   #hero::after {
     content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 3px,
-      rgba(255,255,255,0.008) 3px,
-      rgba(255,255,255,0.008) 4px
-    );
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,0.008) 3px, rgba(255,255,255,0.008) 4px);
     pointer-events: none;
   }
 </style>
@@ -889,7 +681,7 @@
         <div class="code-line">&nbsp;</div>
         <div class="code-line"><span class="c-kw">const</span> <span class="c-fn">engineer</span> = {</div>
         <div class="code-line">&nbsp; name: <span class="c-str">"Lokesh Karia"</span>,</div>
-        <div class="code-line">&nbsp; role: <span class="c-str">"Full-Stack Engineer"</span>,</div>
+        <div class="code-line">&nbsp; role: <span class="c-str">"Software Engineer"</span>,</div>
         <div class="code-line">&nbsp; stack: [<span class="c-str">"C++"</span>, <span class="c-str">"Python"</span>],</div>
         <div class="code-line">&nbsp; available: <span class="c-kw">true</span>,</div>
         <div class="code-line">}</div>
@@ -928,9 +720,7 @@
         <h2 class="section-title">PROJECTS</h2>
       </div>
     </div>
-
-    <div class="projects-grid" id="projects-grid">
-    </div>
+    <div class="projects-grid" id="projects-grid"></div>
   </div>
 </section>
 
@@ -943,7 +733,6 @@
         <h2 class="section-title">SKILLS</h2>
         <p>Deep expertise across the full stack — from bare-metal systems programming to pixel-perfect UIs. I care about performance at every layer.</p>
       </div>
-
       <div class="skills-grid" id="skills-grid">
         <div>
           <div class="skill-group-label">Languages</div>
@@ -963,48 +752,7 @@
   <div class="container">
     <div class="section-label" data-num="03">Career</div>
     <h2 class="section-title">EXPERIENCE</h2>
-
-    <div class="timeline">
-      <div class="timeline-item current">
-        <div class="tl-date">2022 — Present</div>
-        <div class="tl-company">STRIPE</div>
-        <div class="tl-role">Senior Software Engineer — Payments Infrastructure</div>
-        <p class="tl-desc">Led architecture of a new payment routing engine processing $2B+ in annual transactions. Reduced p99 latency from 180ms to 22ms. Mentored a team of 4 engineers and drove adoption of internal observability standards.</p>
-        <div class="tl-tags">
-          <span class="tag">Go</span>
-          <span class="tag">gRPC</span>
-          <span class="tag">Kafka</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">AWS</span>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="tl-date">2020 — 2022</div>
-        <div class="tl-company">DATADOG</div>
-        <div class="tl-role">Software Engineer — Metrics Pipeline</div>
-        <p class="tl-desc">Built and maintained high-throughput ingestion pipelines for time-series data at petabyte scale. Designed a distributed aggregation layer that cut storage costs by 35% without sacrificing query performance.</p>
-        <div class="tl-tags">
-          <span class="tag">Go</span>
-          <span class="tag">Rust</span>
-          <span class="tag">ClickHouse</span>
-          <span class="tag">Kubernetes</span>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="tl-date">2019 — 2020</div>
-        <div class="tl-company">CLOUDFLARE</div>
-        <div class="tl-role">Software Engineer — Edge Platform</div>
-        <p class="tl-desc">Worked on Cloudflare Workers runtime, contributing performance improvements to the V8-based JavaScript execution environment. Shipped features used by 10k+ developers.</p>
-        <div class="tl-tags">
-          <span class="tag">Rust</span>
-          <span class="tag">TypeScript</span>
-          <span class="tag">V8</span>
-          <span class="tag">C++</span>
-        </div>
-      </div>
-    </div>
+    <div class="timeline"></div>
   </div>
 </section>
 
@@ -1013,38 +761,7 @@
   <div class="container">
     <div class="section-label" data-num="04">Writing</div>
     <h2 class="section-title">BLOG</h2>
-
-    <div class="blog-grid">
-      <div class="blog-card">
-        <div class="blog-meta">
-          <span class="blog-date">May 12, 2025</span>
-          <span class="blog-cat">Systems</span>
-        </div>
-        <div class="blog-title">Why I Rewrote Our Job Queue in Rust (And What I Learned)</div>
-        <p class="blog-excerpt">The real cost of garbage collection in latency-sensitive systems, and how we cut tail latency by 4× with a rewrite.</p>
-        <a href="#" class="blog-read">Read article <span class="arrow">→</span></a>
-      </div>
-
-      <div class="blog-card">
-        <div class="blog-meta">
-          <span class="blog-date">Mar 28, 2025</span>
-          <span class="blog-cat">Architecture</span>
-        </div>
-        <div class="blog-title">Designing for Failure: Lessons from 5 Years of On-Call</div>
-        <p class="blog-excerpt">Practical patterns for building systems that fail gracefully and recover automatically — without burning out your team.</p>
-        <a href="#" class="blog-read">Read article <span class="arrow">→</span></a>
-      </div>
-
-      <div class="blog-card">
-        <div class="blog-meta">
-          <span class="blog-date">Feb 5, 2025</span>
-          <span class="blog-cat">Performance</span>
-        </div>
-        <div class="blog-title">The Secrets of Sub-millisecond Database Queries</div>
-        <p class="blog-excerpt">Index strategies, connection pooling, query plan analysis — a complete guide to squeezing every millisecond out of PostgreSQL.</p>
-        <a href="#" class="blog-read">Read article <span class="arrow">→</span></a>
-      </div>
-    </div>
+    <div class="blog-grid"></div>
   </div>
 </section>
 
@@ -1061,12 +778,12 @@
             <span class="icon">✉</span>
             Lokesh@LokeshKaria.dev
           </a>
-          <a href="https://github.com" class="contact-link" target="_blank">
-            <span class="icon" style="font-size: 0.75rem; font-family: var(--font-mono);">GH</span>
+          <a href="https://github.com/LokeshKaria" class="contact-link" target="_blank">
+            <span class="icon" style="font-size:0.75rem;font-family:var(--font-mono);">GH</span>
             github.com/LokeshKaria
           </a>
-          <a href="https://linkedin.com" class="contact-link" target="_blank">
-            <span class="icon" style="font-size: 0.75rem; font-family: var(--font-mono);">IN</span>
+          <a href="https://linkedin.com/in/LokeshKaria" class="contact-link" target="_blank">
+            <span class="icon" style="font-size:0.75rem;font-family:var(--font-mono);">IN</span>
             linkedin.com/in/LokeshKaria
           </a>
         </div>
@@ -1096,7 +813,7 @@
           <textarea id="msg" placeholder="Tell me about your project or opportunity…" required></textarea>
         </div>
         <button class="btn-submit" type="submit">Send Message →</button>
-        <div id="form-status" style="margin-top: 1rem; font-size: 0.85rem; display: none;"></div>
+        <div id="form-status" style="margin-top:1rem;font-size:0.85rem;font-family:var(--font-mono);display:none;"></div>
       </form>
     </div>
   </div>
@@ -1106,24 +823,31 @@
 <footer>
   <span class="footer-copy">© 2025 Lokesh Karia. Built with ☕ and vim.</span>
   <ul class="footer-links">
-    <li><a href="https://github.com" target="_blank">GitHub</a></li>
-    <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+    <li><a href="https://github.com/LokeshKaria" target="_blank">GitHub</a></li>
+    <li><a href="https://linkedin.com/in/LokeshKaria" target="_blank">LinkedIn</a></li>
   </ul>
 </footer>
 
 <script>
-// ── LOAD DATA FROM LOCALSTORAGE (written by editor.html) ──
+// ── CONFIG — paste your GitHub raw URL here ──
+// Go to your repo → data.json → click Raw → copy the URL from address bar
+const GITHUB_DATA_URL = ''; // e.g. https://raw.githubusercontent.com/LokeshKaria/my-portfolio/main/data.json
+
+// ── FLASK BACKEND URL — update this when deployed ──
+const FLASK_URL = 'https://lokesh-karia-portfolio.onrender.com/';
+
+// ── DEFAULTS (shown if GitHub fetch fails or URL not set) ──
 const DEFAULTS = {
   hero: {
-    firstname:'Lokesh', lastname:'Karia', role:'Software Engineer',
-    status:'Available for Work',
-    bio:'I build fast, scalable systems and beautiful interfaces. Specializing in distributed architectures, cloud infrastructure, and developer tooling. 5+ years shipping products people actually use.',
-    stat1num:'5+', stat1label:'Years exp.',
-    stat2num:'30+', stat2label:'Projects shipped',
-    stat3num:'12M', stat3label:'Users reached',
+    firstname: 'Lokesh', lastname: 'Karia', role: 'Software Engineer',
+    status: 'Available for Work',
+    bio: 'I build fast, scalable systems and beautiful interfaces. Specializing in distributed architectures, cloud infrastructure, and developer tooling. 5+ years shipping products people actually use.',
+    stat1num: '5+', stat1label: 'Years exp.',
+    stat2num: '30+', stat2label: 'Projects shipped',
+    stat3num: '12M', stat3label: 'Users reached',
   },
   projects: [
-    { id:1, name:'Distributed Task Queue', desc:'High-throughput job queue handling 50k+ tasks/sec with Redis Streams, built-in retry logic, and a real-time monitoring dashboard. Reduced processing latency by 78%.', tags:['Go','Redis','Kubernetes','React','Prometheus'], link:'#' },
+    { id:1, name:'Distributed Task Queue', desc:'High-throughput job queue handling 50k+ tasks/sec with Redis Streams, built-in retry logic, and a real-time monitoring dashboard.', tags:['Go','Redis','Kubernetes','React','Prometheus'], link:'#' },
     { id:2, name:'CLI DevTool', desc:'A blazing-fast developer CLI for scaffolding microservices with opinionated templates and one-command deploys.', tags:['Rust','Clap','Terraform'], link:'#' },
     { id:3, name:'API Gateway', desc:'Zero-config API gateway with auth, rate limiting, and observability baked in. Open source, 2k+ GitHub stars.', tags:['TypeScript','Node.js','PostgreSQL'], link:'#' },
     { id:4, name:'ML Pipeline', desc:'Automated ML feature pipeline with drift detection, versioning, and a simple Python SDK for data scientists.', tags:['Python','Airflow','GCS'], link:'#' },
@@ -1146,37 +870,28 @@ const DEFAULTS = {
   contact: { email:'Lokesh@LokeshKaria.dev', github:'https://github.com/LokeshKaria', linkedin:'https://linkedin.com/in/LokeshKaria', footer:'© 2025 Lokesh Karia. Built with ☕ and vim.' },
 };
 
-let D;
-try { D = JSON.parse(localStorage.getItem('portfolio_data')) || DEFAULTS; } catch(e) { D = DEFAULTS; }
+function esc(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
-function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-
-// ── HERO ──
-(function renderHero() {
+function renderAll(D) {
+  // ── HERO ──
   const h = D.hero;
   document.querySelector('.hero-tag').textContent = h.status;
   document.querySelector('.hero-name').innerHTML = `${esc(h.firstname)}<br><span class="accent">${esc(h.lastname)}</span>`;
   document.querySelector('.hero-role').textContent = h.role.toUpperCase();
   document.querySelector('.hero-desc').textContent = h.bio;
   const stats = document.querySelectorAll('.stat-item');
-  const sd = [
-    { num: h.stat1num, label: h.stat1label },
-    { num: h.stat2num, label: h.stat2label },
-    { num: h.stat3num, label: h.stat3label },
-  ];
-  stats.forEach((el, i) => {
-    const d = sd[i];
-    el.querySelector('.stat-num').innerHTML = `${esc(d.num)}<span></span>`;
-    el.querySelector('.stat-label').textContent = d.label;
-  });
-  // update code window
+  [{ num:h.stat1num, label:h.stat1label }, { num:h.stat2num, label:h.stat2label }, { num:h.stat3num, label:h.stat3label }]
+    .forEach((d, i) => {
+      if (!stats[i]) return;
+      stats[i].querySelector('.stat-num').innerHTML = `${esc(d.num)}<span></span>`;
+      stats[i].querySelector('.stat-label').textContent = d.label;
+    });
   const lines = document.querySelectorAll('.code-line');
   if (lines[3]) lines[3].innerHTML = `&nbsp; name: <span class="c-str">"${esc(h.firstname)} ${esc(h.lastname)}"</span>,`;
   if (lines[4]) lines[4].innerHTML = `&nbsp; role: <span class="c-str">"${esc(h.role)}"</span>,`;
-})();
+  document.title = `${h.firstname} ${h.lastname} — ${h.role}`;
 
-// ── PROJECTS ──
-(function renderProjects() {
+  // ── PROJECTS ──
   const grid = document.getElementById('projects-grid');
   grid.innerHTML = '';
   const total = D.projects.length;
@@ -1185,7 +900,6 @@ function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').repla
     const isFirst = i === 0;
     card.className = 'project-card' + (isFirst ? ' featured' : '');
     if (i === 1) card.style.borderBottom = '1.5px solid var(--border)';
-    card.dataset.id = p.id;
     card.innerHTML = `
       <div class="project-num">${String(i+1).padStart(2,'0')} / ${String(total).padStart(2,'0')}</div>
       ${isFirst ? '<span class="project-highlight">Featured</span>' : ''}
@@ -1195,42 +909,32 @@ function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').repla
       <a href="${esc(p.link)}" class="project-arrow" target="_blank">↗</a>`;
     grid.appendChild(card);
   });
-})();
 
-// ── SKILLS ──
-(function renderSkills() {
+  // ── SKILLS ──
   function buildBars(skills, containerId, orange) {
-    const container = document.getElementById(containerId);
-    container.innerHTML = '';
+    const c = document.getElementById(containerId);
+    c.innerHTML = '';
     skills.forEach(s => {
       const row = document.createElement('div');
       row.className = 'skill-row';
-      row.dataset.pct = s.pct;
       row.innerHTML = `
         <span class="skill-name">${esc(s.name)}</span>
         <div class="skill-bar-bg"><div class="skill-bar-fill${orange?' orange':''}" data-w="${s.pct}"></div></div>
         <span class="skill-pct">${s.pct}%</span>`;
-      container.appendChild(row);
+      c.appendChild(row);
     });
   }
   buildBars(D.skills.lang, 'lang-bars', false);
   buildBars(D.skills.infra, 'infra-bars', true);
-
-  // Update group labels to match data
-  const langLabel = document.querySelector('#skills .skill-group-label');
-  // Animate on scroll
-  const skillsSection = document.getElementById('skills');
   const obs = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
       document.querySelectorAll('.skill-bar-fill').forEach(bar => { bar.style.width = bar.dataset.w + '%'; });
       obs.disconnect();
     }
   }, { threshold: 0.3 });
-  obs.observe(skillsSection);
-})();
+  obs.observe(document.getElementById('skills'));
 
-// ── EXPERIENCE ──
-(function renderExp() {
+  // ── EXPERIENCE ──
   const timeline = document.querySelector('.timeline');
   timeline.innerHTML = '';
   D.experience.forEach(e => {
@@ -1244,12 +948,10 @@ function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').repla
       <div class="tl-tags">${(e.tags||[]).map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>`;
     timeline.appendChild(item);
   });
-})();
 
-// ── BLOG ──
-(function renderBlog() {
-  const grid = document.querySelector('.blog-grid');
-  grid.innerHTML = '';
+  // ── BLOG ──
+  const blogGrid = document.querySelector('.blog-grid');
+  blogGrid.innerHTML = '';
   D.blog.forEach(b => {
     const card = document.createElement('div');
     card.className = 'blog-card';
@@ -1261,81 +963,78 @@ function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').repla
       <div class="blog-title">${esc(b.title)}</div>
       <p class="blog-excerpt">${esc(b.excerpt)}</p>
       <a href="${esc(b.link)}" class="blog-read">Read article <span class="arrow">→</span></a>`;
-    grid.appendChild(card);
+    blogGrid.appendChild(card);
   });
-})();
 
-// ── CONTACT ──
-(function renderContact() {
+  // ── CONTACT ──
   const c = D.contact;
-  const emailEl = document.querySelector('.contact-link[href^="mailto"]');
-  if (emailEl) { emailEl.href = 'mailto:' + c.email; emailEl.querySelector('span:last-child') && (emailEl.lastChild.textContent = c.email); }
-  const links = document.querySelectorAll('.contact-link');
-  links.forEach(a => {
-    if (a.href.includes('github')) { a.href = c.github; if(a.lastChild) a.lastChild.textContent = c.github.replace('https://',''); }
+  document.querySelectorAll('.contact-link').forEach(a => {
+    if (a.href.includes('mailto'))   { a.href = 'mailto:'+c.email;  if(a.lastChild) a.lastChild.textContent = c.email; }
+    if (a.href.includes('github'))   { a.href = c.github;  if(a.lastChild) a.lastChild.textContent = c.github.replace('https://',''); }
     if (a.href.includes('linkedin')) { a.href = c.linkedin; if(a.lastChild) a.lastChild.textContent = c.linkedin.replace('https://',''); }
+  });
+  document.querySelectorAll('.footer-links a').forEach(a => {
+    if (a.href.includes('github'))   a.href = c.github;
+    if (a.href.includes('linkedin')) a.href = c.linkedin;
   });
   const footerCopy = document.querySelector('.footer-copy');
   if (footerCopy) footerCopy.textContent = c.footer;
-})();
+}
 
-// ── CONTACT FORM ──
-(function setupContactForm() {
-  const form = document.getElementById('contact-form');
-  const statusEl = document.getElementById('form-status');
-  
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const submitBtn = form.querySelector('.btn-submit');
-    const originalText = submitBtn.textContent;
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
-    statusEl.style.display = 'block';
-    
-    const fname = document.getElementById('fname').value.trim();
-    const lname = document.getElementById('lname').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const subject = document.getElementById('subject').value.trim();
-    const msg = document.getElementById('msg').value.trim();
-    
-    // Basic validation
-    if (!fname || !lname || !email || !subject || !msg) {
-      statusEl.style.color = 'var(--accent2)';
-      statusEl.textContent = 'Please fill in all fields.';
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-      return;
-    }
-    
+// ── LOAD: GitHub first, fall back to DEFAULTS ──
+async function loadData() {
+  if (GITHUB_DATA_URL) {
     try {
-      // Send to Flask backend
-      const response = await fetch('http://localhost:5000/send-email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ fname, lname, email, subject, msg })
-      });
-      
-      const result = await response.json();
-      
-      if (result.success) {
-        statusEl.style.color = 'var(--accent)';
-        statusEl.textContent = '✓ Message sent! I\'ll get back to you soon.';
-        form.reset();
-      } else {
-        statusEl.style.color = 'var(--accent2)';
-        statusEl.textContent = result.error || 'Error sending message. Please try again or email directly.';
-      }
-    } catch (error) {
-      console.error('Error:', error);
+      const res = await fetch(GITHUB_DATA_URL + '?t=' + Date.now());
+      if (res.ok) { renderAll(await res.json()); return; }
+    } catch(e) { console.warn('GitHub fetch failed, using defaults.', e); }
+  }
+  renderAll(DEFAULTS);
+}
+
+loadData();
+
+// ── CONTACT FORM → Flask backend ──
+document.getElementById('contact-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = e.target.querySelector('.btn-submit');
+  const statusEl = document.getElementById('form-status');
+  const orig = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  statusEl.style.display = 'block';
+
+  const payload = {
+    fname:   document.getElementById('fname').value.trim(),
+    lname:   document.getElementById('lname').value.trim(),
+    email:   document.getElementById('email').value.trim(),
+    subject: document.getElementById('subject').value.trim(),
+    msg:     document.getElementById('msg').value.trim(),
+  };
+
+  try {
+    const res = await fetch(`${FLASK_URL}/send-email`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+    const result = await res.json();
+    if (result.success) {
+      statusEl.style.color = 'var(--accent)';
+      statusEl.textContent = "✓ Message sent! I'll get back to you soon.";
+      e.target.reset();
+    } else {
       statusEl.style.color = 'var(--accent2)';
-      statusEl.textContent = 'Error sending message. Is the server running? Start it with: python app.py';
+      statusEl.textContent = result.error || 'Something went wrong. Please try again.';
     }
-    
-    submitBtn.disabled = false;
-    submitBtn.textContent = originalText;
-  });
-})();
+  } catch(err) {
+    statusEl.style.color = 'var(--accent2)';
+    statusEl.textContent = 'Could not reach the server. Please email me directly.';
+  }
+
+  btn.disabled = false;
+  btn.textContent = orig;
+});
 </script>
 </body>
 </html>

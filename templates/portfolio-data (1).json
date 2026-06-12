@@ -1,0 +1,123 @@
+{
+  "hero": {
+    "firstname": "Lokesh",
+    "lastname": "Karia",
+    "role": "Software Engineer",
+    "status": "Available for Work",
+    "bio": "I build fast, scalable systems and beautiful interfaces. Specializing in distributed architectures, cloud infrastructure, and developer tooling. 5+ years shipping products people actually use.",
+    "stat1num": "",
+    "stat1label": "",
+    "stat2num": "",
+    "stat2label": "",
+    "stat3num": "",
+    "stat3label": ""
+  },
+  "projects": [
+    {
+      "id": 1,
+      "name": "SQORA — AI-driven Learning Platform ",
+      "desc": "Describe your project.Built scalable REST APIs using Python and FastAPI with a modular backend architecture for efficient feature integration. Developed a RAG-based retrieval system using Google Gemini API and Qdrant to enable low-latency document retrieval, along with automated data ingestion pipelines for structured learning content.",
+      "tags": [
+        "Qwen",
+        "Gemini API",
+        "Linux",
+        "Docker",
+        "FastAPI",
+        "Qdrant"
+      ],
+      "link": "https://github.com/devlup-labs/sqora.git"
+    },
+    {
+      "id": 2,
+      "name": "Quadcopter Drone with Onboard Vision ",
+      "desc": "– Built and tested a manually piloted quadcopter platform with remote-control operation, achieving approximately 20 minutes\nof flight time on a 3S battery.\n– Integrated an NVIDIA Jetson Orin NX for onboard compute and deployed a YOLO-based object detection pipeline on live\ncamera feeds.\n– Measured real-time inference throughput of 10–14 FPS, balancing model performance with onboard compute and power\nconstraints.\n– Designed the project toward vision-guided autonomy and am currently interfacing the Jetson with the flight controller to\nsend control commands; closed-loop autonomous flight is still in progress",
+      "tags": [
+        "MavLink",
+        "Jetson",
+        "YOLO"
+      ],
+      "link": "https://drive.google.com/drive/folders/1Ym63M8to4VZ5jR5cPaHTdyEIMV3yhTMo?usp=sharing"
+    },
+    {
+      "id": 3,
+      "name": "Lightweight Version-Control System (C++ CLI) ",
+      "desc": "A Git-inspired CLI tool for file versioning, commit tracking, and multi-repo management.\n– Developed a CLI-based note-taking application with built-in version control, enabling users to commit, diff, and restore\nprevious note versions seamlessly.\n– Implemented a linked-list diff engine in C++ for note versioning, reducing storage by 70% vs full snapshots.\n– Integrated AES-256 encryption on all stored notes, achieving zero plaintext exposure on disk and ensuring file-level data\nconfidentiality at rest.\n– Architected a 4-module system for CLI parsing, versioning, encryption, and file management.",
+      "tags": [
+        "C++",
+        "Bash"
+      ],
+      "link": "https://github.com/lokeshkaria14/DSA-project-repo.git"
+    },
+    {
+      "id": 4,
+      "name": "Grasp-and-Lift EEG Detection ",
+      "desc": "Built an EEG signal processing and 1D CNN-based classification pipeline to detect motor intentions from 32-channel brainwave data during grasp-and-lift tasks. Implemented advanced preprocessing, artifact removal, and feature extraction techniques, achieving multi-label event classification with detailed performance and visualization analysis.",
+      "tags": [
+        "Python",
+        "Numpy",
+        "CNN",
+        "Tensorflow",
+        "Pytorch"
+      ],
+      "link": "https://github.com/lokeshkaria14/Grasp-and-Lift-EEG-Detection.git"
+    },
+    {
+      "id": 5,
+      "name": "CAPR-LB: Context-Aware Proactive Reinforcement Learning Load Balancer",
+      "desc": "Developing an RL-based load balancing framework for distributed systems using Q-learning and workload-aware routing policies. The project focuses on modeling queueing systems and server environments to optimize traffic distribution, prevent overload, and evaluate routing strategies under varying workload conditions.",
+      "tags": [
+        "Python"
+      ],
+      "link": "https://github.com/Akkiiitj/CAPR_LB.git"
+    }
+  ],
+  "skills": {
+    "lang": [
+      {
+        "id": 1,
+        "name": "C++",
+        "pct": 90
+      },
+      {
+        "id": 2,
+        "name": "Python",
+        "pct": 85
+      },
+      {
+        "id": 101,
+        "name": "Verilog",
+        "pct": 60
+      },
+      {
+        "id": 100,
+        "name": "Go",
+        "pct": 50
+      }
+    ],
+    "infra": []
+  },
+  "experience": [
+    {
+      "id": 1,
+      "company": "SQORA",
+      "role": "Student Developer (WOC)",
+      "period": "Dec. 2025 — Present",
+      "desc": "Built scalable REST APIs using Python and FastAPI with a modular backend architecture for efficient feature integration. Developed a RAG-based retrieval system using Google Gemini API and Qdrant to enable low-latency document retrieval, along with automated data ingestion pipelines for structured learning content.",
+      "tags": [
+        "Go",
+        "gRPC",
+        "Kafka",
+        "PostgreSQL",
+        "AWS"
+      ],
+      "current": true
+    }
+  ],
+  "blog": [],
+  "contact": {
+    "email": "karialokesh.work@gmail.com",
+    "github": "https://github.com/lokeshkaria14",
+    "linkedin": "https://linkedin.com/in/lokesh-karia-212a9b280/",
+    "footer": "© 2026 Lokesh Karia."
+  }
+}
