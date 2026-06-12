@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from flask import render_template
 import os
 import traceback
-import requests
+import resend
 
 load_dotenv()
 
@@ -16,6 +16,8 @@ def home():
     return render_template("index.html")
 
 RESEND_API_KEY = os.getenv("RESEND_API_KEY")
+
+resend.api_key = RESEND_API_KEY
 RECIPIENT_EMAIL = os.getenv("RECIPIENT_EMAIL")
 
 # Validate environment variables on startup
@@ -97,46 +99,41 @@ Message:
 {message}
 """
 
-        response = requests.post(
-            "https://api.resend.com/emails",
-            headers={
-                "Authorization": f"Bearer {RESEND_API_KEY}",
-                "Content-Type": "application/json"
-            },
-            json={
-                "from": "onboarding@resend.dev",
-                "to": [RECIPIENT_EMAIL],
-                "subject": f"Portfolio Contact: {subject}",
-                "html": f"""
-                <h2>New Portfolio Contact Form Submission</h2>
+        params = {
+            "from": "onboarding@resend.dev",
+            "to": [RECIPIENT_EMAIL],
+            "subject": f"Portfolio Contact: {subject}",
+            "html": f"""
+            <h2>New Portfolio Contact Form Submission</h2>
 
-                <p><strong>Name:</strong> {fname} {lname}</p>
-                <p><strong>Email:</strong> {email}</p>
-                <p><strong>Subject:</strong> {subject}</p>
+            <p><strong>Name:</strong> {fname} {lname}</p>
+            <p><strong>Email:</strong> {email}</p>
+            <p><strong>Subject:</strong> {subject}</p>
 
-                <hr>
+            <hr>
 
-                <p>{message}</p>
-                """
-            }
-        )
-        print("Status:", response.status_code)
-        print("Response:", response.text)
-        response.raise_for_status()
+            <p>{message}</p>
+            """
+        }
 
-        print("Email sent successfully")
+        response = resend.Emails.send(params)
+
+        print("RESEND RESPONSE:")
+        print(response)
 
         return jsonify({
             "success": True,
             "message": "Email sent successfully"
         })
 
-    except Exception:
+    except Exception as e:
+        print("ERROR:")
+        print(e)
         traceback.print_exc()
 
         return jsonify({
             "success": False,
-            "error": "Failed to send email"
+            "error": str(e)
         }), 500
 
 
