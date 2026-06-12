@@ -454,7 +454,7 @@ input[type=range]::-webkit-slider-thumb {
       <span class="save-dot" id="save-dot"></span>
       <span id="save-text">All saved</span>
     </div>
-    <button class="btn btn-ghost" onclick="window.open('portfolio.html','_blank')">Preview →</button>
+    <button class="btn btn-ghost" onclick="window.open('index.html','_blank')">Preview →</button>
     <button class="btn btn-primary" onclick="saveAll()">Save Changes</button>
   </div>
 </div>
@@ -760,7 +760,7 @@ function saveAll() {
   collectBlog();
   localStorage.setItem('portfolio_data', JSON.stringify(data));
   markSaved();
-  toast('Changes saved — open portfolio.html to see updates', 'success');
+  toast('Changes saved — open index.html to see updates', 'success');
 }
 
 // ── HERO ──
