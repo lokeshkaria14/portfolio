@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from email.mime.text import MIMEText
 from dotenv import load_dotenv
-
+from flask import Flask, render_template
 import smtplib
 import os
 import traceback
@@ -11,6 +11,10 @@ load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
+
+@app.route("/")
+def home():
+    return render_template("index.html")
 
 SENDER_EMAIL = os.getenv("SENDER_EMAIL")
 APP_PASSWORD = os.getenv("APP_PASSWORD")
