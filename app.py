@@ -120,7 +120,8 @@ Message:
                 """
             }
         )
-
+        print("Status:", response.status_code)
+        print("Response:", response.text)
         response.raise_for_status()
 
         print("Email sent successfully")
