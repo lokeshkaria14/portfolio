@@ -1,11 +1,10 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from email.mime.text import MIMEText
 from dotenv import load_dotenv
-from flask import Flask, render_template
-import smtplib
+from flask import render_template
 import os
 import traceback
+import requests
 
 load_dotenv()
 
@@ -16,18 +15,14 @@ CORS(app)
 def home():
     return render_template("index.html")
 
-SENDER_EMAIL = os.getenv("SENDER_EMAIL")
-APP_PASSWORD = os.getenv("APP_PASSWORD")
+RESEND_API_KEY = os.getenv("RESEND_API_KEY")
 RECIPIENT_EMAIL = os.getenv("RECIPIENT_EMAIL")
 
 # Validate environment variables on startup
 missing = []
 
-if not SENDER_EMAIL:
-    missing.append("SENDER_EMAIL")
-
-if not APP_PASSWORD:
-    missing.append("APP_PASSWORD")
+if not RESEND_API_KEY:
+    missing.append("RESEND_API_KEY")
 
 if not RECIPIENT_EMAIL:
     missing.append("RECIPIENT_EMAIL")
@@ -102,48 +97,38 @@ Message:
 {message}
 """
 
-        msg = MIMEText(body)
+        response = requests.post(
+            "https://api.resend.com/emails",
+            headers={
+                "Authorization": f"Bearer {RESEND_API_KEY}",
+                "Content-Type": "application/json"
+            },
+            json={
+                "from": "onboarding@resend.dev",
+                "to": [RECIPIENT_EMAIL],
+                "subject": f"Portfolio Contact: {subject}",
+                "html": f"""
+                <h2>New Portfolio Contact Form Submission</h2>
 
-        msg["Subject"] = f"Portfolio Contact: {subject}"
-        msg["From"] = SENDER_EMAIL
-        msg["To"] = RECIPIENT_EMAIL
+                <p><strong>Name:</strong> {fname} {lname}</p>
+                <p><strong>Email:</strong> {email}</p>
+                <p><strong>Subject:</strong> {subject}</p>
 
-        # Clicking reply in Gmail replies to the visitor
-        msg["Reply-To"] = email
+                <hr>
 
-        print("Connecting to Gmail SMTP...")
+                <p>{message}</p>
+                """
+            }
+        )
 
-        with smtplib.SMTP_SSL(
-            "smtp.gmail.com",
-            465,
-            timeout=30
-        ) as smtp:
+        response.raise_for_status()
 
-            print("Connected.")
-
-            smtp.login(
-                SENDER_EMAIL,
-                APP_PASSWORD
-            )
-
-            print("Authenticated.")
-
-            smtp.send_message(msg)
-
-            print("Email sent.")
+        print("Email sent successfully")
 
         return jsonify({
             "success": True,
             "message": "Email sent successfully"
         })
-
-    except smtplib.SMTPAuthenticationError:
-        traceback.print_exc()
-
-        return jsonify({
-            "success": False,
-            "error": "SMTP authentication failed. Check Gmail App Password."
-        }), 500
 
     except Exception:
         traceback.print_exc()
@@ -159,8 +144,7 @@ def health():
     return jsonify({
         "status": "ok",
         "email_configured": bool(
-            SENDER_EMAIL and
-            APP_PASSWORD and
+            RESEND_API_KEY and
             RECIPIENT_EMAIL
         )
     })
