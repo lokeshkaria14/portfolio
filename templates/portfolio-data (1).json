@@ -4,7 +4,7 @@
     "lastname": "Karia",
     "role": "Software Engineer",
     "status": "Available for Work",
-    "bio": "I build fast, scalable systems and beautiful interfaces. Specializing in distributed architectures, cloud infrastructure, and developer tooling. 5+ years shipping products people actually use.",
+    "bio": "Computer Science student passionate about software engineering, AI, and scalable systems. Experienced in building backend applications, REST APIs, and AI-powered solutions using Python, FastAPI, C++, and PostgreSQL. Interested in distributed systems, machine learning, and solving real-world problems through efficient and reliable software.",
     "stat1num": "",
     "stat1label": "",
     "stat2num": "",
@@ -16,7 +16,7 @@
     {
       "id": 1,
       "name": "SQORA — AI-driven Learning Platform ",
-      "desc": "Describe your project.Built scalable REST APIs using Python and FastAPI with a modular backend architecture for efficient feature integration. Developed a RAG-based retrieval system using Google Gemini API and Qdrant to enable low-latency document retrieval, along with automated data ingestion pipelines for structured learning content.",
+      "desc": "Built scalable REST APIs using Python and FastAPI with a modular backend architecture for efficient feature integration. Developed a RAG-based retrieval system using Google Gemini API and Qdrant to enable low-latency document retrieval, along with automated data ingestion pipelines for structured learning content.",
       "tags": [
         "Qwen",
         "Gemini API",
@@ -104,13 +104,14 @@
       "period": "Dec. 2025 — Present",
       "desc": "Built scalable REST APIs using Python and FastAPI with a modular backend architecture for efficient feature integration. Developed a RAG-based retrieval system using Google Gemini API and Qdrant to enable low-latency document retrieval, along with automated data ingestion pipelines for structured learning content.",
       "tags": [
-        "Go",
-        "gRPC",
-        "Kafka",
-        "PostgreSQL",
-        "AWS"
+        "Qwen",
+        "Gemini API",
+        "Linux",
+        "Docker",
+        "Qdrant",
+        "FastAPI"
       ],
-      "current": true
+      "current": false
     }
   ],
   "blog": [],
